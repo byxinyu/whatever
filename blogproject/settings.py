@@ -25,7 +25,8 @@ SECRET_KEY = 'yw5k#e9kp$1*)-%3ws7qv5jp87eb8*gvo)7=he3x!am1$u!-wv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.zhangxinyu.org']
+
 
 
 # Application definition
