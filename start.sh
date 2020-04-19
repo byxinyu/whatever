@@ -1,0 +1,1 @@
+pipenv run gunicorn blogproject.wsgi -w 4 -k gthread -b 127.0.0.1:8000
