@@ -6,10 +6,14 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==2.2.10"
+django = "==2.2.3"
+elasticsearch = ">=2,<3"
 markdown = "*"
 simpleui = "*"
 gunicorn = "*"
+faker = "*"
+django-pure-pagination = "*"
+django-haystack = "*"
 
 [requires]
 python_version = "3.7"

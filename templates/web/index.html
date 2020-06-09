@@ -77,12 +77,12 @@
                             <span class="post-date"><a href="#"><time class="entry-date"
                                                                       datetime="{{ post.created_time }}">{{ post.created_time }}</time></a></span>
                             <span class="post-author"><a href="#">{{ post.author }}</a></span>
-                            <span class="comments-link"><a href="#">4 评论</a></span>
-                            <span class="views-count"><a href="#">588 阅读</a></span>
+                            <span class="comments-link"><a href="{{ post.get_absolute_url }}#comment-area">{{ post.comment_set.count }}评论</a></span>
+                            <span class="views-count"><a href="{{ post.get_absolute_url }}">{{ post.views }} 阅读</a></span>
                         </div>
                     </header>
                     <div class="entry-content clearfix">
-                        <P>{{ post.excerpt }}...</P>
+                        <P>{{ post.excerpt }}...</P>    
                         <div class="read-more cl-effect-14">
                             <a href="{{ post.get_absolute_url }}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
                         </div>
@@ -99,19 +99,33 @@
                     <a href="#">下一页</a>
                 </div>
                 -->
-                <div class="pagination">
-                    <ul>
-                        <li><a href="">1</a></li>
-                        <li><a href="">...</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li class="current"><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">...</a></li>
-                        <li><a href="">11</a></li>
-                    </ul>
-                </div>
+            <div class="text-center pagination" style="width: 100%">
+              <ul>
+                {% if page_obj.has_previous %}
+                  <li><a href="?{{ page_obj.previous_page_number.querystring }}"
+                         class="prev">&lsaquo;&lsaquo; </a></li>
+                {% else %}
+                  <li><span class="disabled prev">&lsaquo;&lsaquo; </span></li>
+                {% endif %}
+                {% for page in page_obj.pages %}
+                  {% if page %}
+                    {% ifequal page page_obj.number %}
+                      <li class="current"><a href="#">{{ page }}</a></li>
+                    {% else %}
+                      <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                    {% endifequal %}
+                  {% else %}
+                    ...
+                  {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                  <li><a href="?{{ page_obj.next_page_number.querystring }}" class="next"> &rsaquo;&rsaquo;</a>
+                  </li>
+                {% else %}
+                  <li><span class="disabled next"> &rsaquo;&rsaquo;</span></li>
+                {% endif %}
+              </ul>
+            </div>
             {% endblock main %}
             </main>
             <aside class="col-md-4">
