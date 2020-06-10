@@ -4,8 +4,8 @@ from .models import Post, Category, Tag
 
 
 class PosAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_time', 'modified_time', 'category', 'author']
-    fields = ['title', 'body', 'excerpt', 'category', 'tags']
+    list_display = ['title', 'created_time', 'modified_time', 'category', 'author', 'avatar']
+    fields = ['title', 'body', 'excerpt', 'category', 'tags', 'avatar']
 
     def save_model(self, request, obj, form, change):
         obj.author = request.user
