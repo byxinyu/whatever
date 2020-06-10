@@ -21,7 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('web.urls')),
     path('', include('comments.urls')),
-
-    # 记得在顶部引入 AllPostsRssFeed
-    path('all/rss/', AllPostsRssFeed(),name='rss'),
+    path('userprofile/', include('userprofile.urls', namespace='userprofile')),
+    path('all/rss/', AllPostsRssFeed(), name='rss'),
 ]

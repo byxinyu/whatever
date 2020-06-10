@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'yw5k#e9kp$1*)-%3ws7qv5jp87eb8*gvo)7=he3x!am1$u!-wv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.zhangxinyu.org']
 
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web.apps.WebConfig',
     'pure_pagination',  # 分页
-    'comments.apps.CommentsConfig', 
+    'comments.apps.CommentsConfig',
+    'userprofile'
     # 'web.apps.BlogConfig',
 ]
 
@@ -133,3 +134,5 @@ PAGINATION_SETTINGS = {
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
