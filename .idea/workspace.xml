@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1709faf3-aaac-4a3c-b333-ba3f3f5d7181" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blogproject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blogproject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +118,7 @@
       <updated>1586945446726</updated>
       <workItem from="1591707598684" duration="7422000" />
       <workItem from="1591758635244" duration="28674000" />
-      <workItem from="1591858726547" duration="6778000" />
+      <workItem from="1591858726547" duration="7693000" />
     </task>
     <task id="LOCAL-00001" summary="添加主机头">
       <created>1587223450480</created>
@@ -254,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591865571330</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="关闭debug">
+      <created>1591867841305</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1591867841305</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +269,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="添加主机头" />
-    <MESSAGE value="关闭debug" />
     <MESSAGE value="静态收集" />
     <MESSAGE value="test" />
     <MESSAGE value="添加评论" />
@@ -271,17 +276,18 @@
     <MESSAGE value="修复rss订阅和搜索功能，添加前台登录和登出。" />
     <MESSAGE value="添加登录登出功能" />
     <MESSAGE value="修复评论成功没有提示信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复评论成功没有提示信息" />
+    <MESSAGE value="关闭debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="关闭debug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="783" y="236" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591863999728">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="783" y="236" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1591863999728" />
-    <state x="140" y="0" key="CommitChangelistDialog2" timestamp="1591865570659">
+    <state x="140" y="0" key="CommitChangelistDialog2" timestamp="1591867840690">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="140" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1591865570659" />
+    <state x="140" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1591867840690" />
     <state x="0" y="65" key="DiffContextDialog" timestamp="1591708281142">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -318,10 +324,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="43" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1591802644862" />
-    <state x="160" y="148" key="Vcs.Push.Dialog.v2" timestamp="1591865594192">
+    <state x="160" y="148" key="Vcs.Push.Dialog.v2" timestamp="1591867869633">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="160" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1591865594192" />
+    <state x="160" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1591867869633" />
     <state x="363" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591708309566">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

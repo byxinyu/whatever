@@ -57,6 +57,18 @@ class Post(models.Model):
     views = models.PositiveIntegerField(default=0, editable=False)
     avatar = models.ImageField('封面图', upload_to='article/%Y%m%d/', blank=True)
 
+    @property
+    def toc(self):
+        return self.rich_content.get("toc", "")
+
+    @property
+    def body_html(self):
+        return self.rich_content.get("content", "")
+
+    @cached_property
+    def rich_content(self):
+        return generate_rich_content(self.body)
+
     def save(self, *args, **kwargs):
         self.modified_time = timezone.now()
         super().save(*args, **kwargs)
@@ -88,14 +100,3 @@ class Post(models.Model):
         self.save(update_fields=['views'])
 
 
-    @property
-    def toc(self):
-        return self.rich_content.get("toc","")
-
-    @property
-    def body_html(self):
-        return self.rich_content.get("content","")
-
-    @property
-    def rich_content(self):
-        return generate_rich_content(self.body)
