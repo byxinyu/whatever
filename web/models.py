@@ -8,6 +8,9 @@ from markdown.extensions.toc import TocExtension
 from django.utils.text import slugify
 import re
 from django.utils.functional import cached_property
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFit
+
 
 def generate_rich_content(value):
     md = markdown.Markdown(
@@ -22,6 +25,7 @@ def generate_rich_content(value):
     m = re.search(r'<div class="toc">\s*<ul>(.*)</ul>\s*</div>', md.toc, re.S)
     toc = m.group(1) if m is not None else ""
     return {"content": content, "toc": toc}
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -55,7 +59,13 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, verbose_name='标签', blank=True)
     author = models.ForeignKey(User, verbose_name='作者', on_delete=models.CASCADE)
     views = models.PositiveIntegerField(default=0, editable=False)
-    avatar = models.ImageField('封面图', upload_to='article/%Y%m%d/', blank=True)
+    avatar = ProcessedImageField(
+        verbose_name='标题图',
+        upload_to='article/%Y%m%d',
+        processors=[ResizeToFit(width=400)],
+        format='JPEG',
+        options={'quality': 100},
+    )
 
     @property
     def toc(self):

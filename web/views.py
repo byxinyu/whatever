@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.views.generic import ListView
 
+
 class IndexView(PaginationMixin, ListView):
     model = Post
     template_name = 'web/index.html'
@@ -41,6 +42,7 @@ class PostDetailView(DetailView):
         #视图必须 返回一个HttpResponse对象
         return response
 
+
 class ArchiveView(IndexView):
     def get_queryset(self):
         year = self.kwargs.get("year")
@@ -68,6 +70,7 @@ class TagView(IndexView):
         t = get_object_or_404(Tag, pk=self.kwargs.get("pk"))
         return super().get_queryset().filter(tags=t)
 
+
 def search(request):
     q = request.GET.get('q')
 
@@ -78,3 +81,5 @@ def search(request):
 
     post_list = Post.objects.filter(Q(title__icontains=q) | Q(body__icontains=q))
     return render(request, 'web/index.html', {'post_list': post_list})
+
+
