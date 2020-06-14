@@ -10,6 +10,8 @@ import re
 from django.utils.functional import cached_property
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
+import random
+
 
 
 def generate_rich_content(value):
@@ -40,6 +42,7 @@ class Category(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
+    tagColor = models.CharField(max_length=20, default="#%06x" % random.randint(0, 0xFFFFFF))
 
     class Meta:
         verbose_name = '标签'
@@ -59,6 +62,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, verbose_name='标签', blank=True)
     author = models.ForeignKey(User, verbose_name='作者', on_delete=models.CASCADE)
     views = models.PositiveIntegerField(default=0, editable=False)
+    stick = models.NullBooleanField('置顶')
     avatar = ProcessedImageField(
         verbose_name='标题图',
         upload_to='article/%Y%m%d',

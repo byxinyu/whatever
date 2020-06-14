@@ -2,11 +2,14 @@
     {% load web_extras %}
 <html>
 <head>
-    <title>Black &amp; White</title>
+    <title>我太富博客</title>
 
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- <link rel="icon" href="{% static 'web/img/favicon.ico' %}" type="image/x-icon" /> -->
+      <link rel="shortcut icon" href="{% static 'web/img/favicon.ico' %}" />
+   
 
     <!-- css -->
     <style>
@@ -54,13 +57,14 @@
      <script src="{% static 'web/js/pace.min.js' %}"></script>
      <script src="{% static 'web/js/modernizr.custom.js' %}"></script>
 </head>
-<body>
+<body id="single">
+<div class="kaitou">
 <div class="container">
     <header id="site-header">
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-8">
                 <div class="logo">
-                    <h1><a href="{% url 'web:index' %}"><b>Black</b> &amp; White</a></h1>
+                    <img src="{% static 'web/img/logo.png' %}" style="height: 50px;">
                 </div>
             </div><!-- col-md-4 -->
             <div class="col-md-8 col-sm-7 col-xs-4">
@@ -72,11 +76,11 @@
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="cl-effect-11"><a href="{% url 'web:index' %}" data-hover="首页">首页</a></li>
-                            <li class="cl-effect-11"><a href="full-width.html" data-hover="博客">博客</a></li>
-                            <li class="cl-effect-11"><a href="about.html" data-hover="关于">关于</a></li>
-                            <li class="cl-effect-11"><a href="contact.html" data-hover="联系">联系</a></li>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="cl-effect-8"><h4 class="glyphicon glyphicon-home"><a href="{% url 'web:index' %}" data-hover="首页"> 首页</a></h4></li>
+                                    <li class="cl-effect-8"><h4 class="glyphicon glyphicon-book"><a href="{% url 'web:fullwidth' %}" data-hover="博客"> 博客</a></h4></li>
+                                    <li class="cl-effect-8"><h4 class="glyphicon glyphicon-user"><a href="{% url 'web:about' %}" data-hover="关于"> 关于</a></h4></li>
+                                    <li class="cl-effect-8"><h4 class="glyphicon glyphicon-phone"><a href="{% url 'web:contact' %}" data-hover="联系"> 联系</a></h4></li>
                             {% if user.is_authenticated %}
                             <!-- 如果用户已经登录，则显示用户名下拉框 -->
                             <li class="nav-item dropdown">
@@ -108,6 +112,7 @@
                 </div>
             </div><!-- col-md-8 -->
         </div>
+      </div>
     </header>
 {% if messages %}
     {% for message in messages %}
@@ -133,8 +138,8 @@
                   {% block toc %}
                   {% endblock toc %}
                   {% show_recent_posts %}
-                  {% show_archives %}
                   {% show_categories %}
+                  {% show_archives %}
                   {% show_tags %}
                 <div class="rss">
                     <a href="{% url 'rss' %}"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
@@ -146,11 +151,11 @@
 <footer id="site-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <p class="copyright">&copy 2020 - 采集自<a href="http://www.cssmoban.com/"
-                                                        target="_blank" title="模板之家">模板之家</a>
-                    - 由<a href="https://zhangxinyu.org  /" title="网页模板" target="_blank">我太富</a>修改
-                </p>
+            <div class="footera col-md-12 ">
+                <a href="{% url 'web:contact' %}" class="no_look">联系我们</a>|<a href="{% url 'web:index' %}">关于博客</a>|<a href="#">关于广告</a>|<a href="#" class="no_look">关于微博</a>
+            </div>
+            <div class="footerb col-md-12 ">
+                @2020 wtf.zhangxinyu.org/ 我太富队伍 创作
             </div>
         </div>
     </div>
@@ -168,6 +173,7 @@
         </ul>
     </nav>
 </div>
+
 
 <script src="{% static 'web/js/script.js' %}"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>

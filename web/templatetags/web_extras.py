@@ -8,8 +8,13 @@ register = template.Library()
 
 @register.inclusion_tag('web/inclusions/recent_posts.html', takes_context=True)
 def show_recent_posts(context, num=5):
+    post_list = Post.objects.all().order_by('-views')[:num]
+    color = ['#f54646','#ff8648','#ffa82d','#8fb9f5','#8fb9f5']
+    colornum = ['1','2','3','4','5']
+    array = zip(post_list,color,colornum)
     return {
-        'recent_post_list': Post.objects.all().order_by('-created_time')[:num],  # 定义文章列表,取前5
+        'array':array
+         # 定义文章列表,取前5
     }
 
 

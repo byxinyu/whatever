@@ -72,7 +72,7 @@
         <div class="row">
             <main class="col-md-8">
                 {% block main %}
-                <articl class ="post post-{{ post.pk }}">
+                <article class ="post post-{{ post.pk }}"style="margin-top: 0px;">
                   <header class="entry-header">
                     <h1 class="entry-title">{{ post.title }}</h1>
                     <div class="entry-meta">
@@ -84,10 +84,10 @@
                       <span class="views-count"><a href="#">{{ post.views }}  阅读</a></span>
                     </div>
                   </header>
-                  <div class="entry-content clearfix">
+                  <div class="entry-content1 clearfix">
                     {{ post.body_html|safe }}
                   </div>
-                </articl>
+                </article>
                 <section class="comment-area" id="comment-area">
                     <hr>
                     <h3>发表评论</h3>
@@ -105,9 +105,17 @@
                 {% block toc %}
                     {% if post.toc %}
 
-                <div class="widget widget-content">
-                    <h3 class="widget-title">文章目录</h3>
-                    <div class="toc">
+                <div class="widget widget-content1">
+                    <div style="width: 100%;float: left;box-shadow: 0 0 15px #000000;">
+      <div style="width: 100%;float: left;box-shadow: 0 0 10px #ffffff inset;">
+        <h3 class="widget-title">文章目录</h3>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+        <div style="height: 3px;width: 25%;float: left;background-color: #d7e9f5;"></div>
+        <div style="height: 3px;width: 65%;float: left;background-color: #333;"></div>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+      </div>
+    </div>
+                    <div class="toc" style="padding: 70px 0px 10px 0px;">
                         <ul>
                             {{ post.toc|safe }}
                         </ul>

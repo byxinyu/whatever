@@ -41,7 +41,7 @@ class PostDetailView(DetailView):
 
         #视图必须 返回一个HttpResponse对象
         return response
-
+    
 
 class ArchiveView(IndexView):
     def get_queryset(self):
@@ -83,3 +83,26 @@ def search(request):
     return render(request, 'web/index.html', {'post_list': post_list})
 
 
+def about(request):
+    q = request.GET.get('q')
+ 
+    
+ 
+    post_list = 'a';
+    return render(request,'web/about.html',{'post_list': post_list});
+
+def contact(request):
+    q = request.GET.get('q')
+ 
+    
+ 
+    post_list = 'a';
+    return render(request,'web/contact.html',{'post_list': post_list});
+
+
+class fullwidthView(PaginationMixin,ListView):
+    model = Post
+    template_name = 'web/fullwidth.html'
+    context_object_name = 'post_list'
+    # 指定paginate_by 属性后开启分页功能，其值代表每一页包含多少篇文章
+    paginate_by = 10

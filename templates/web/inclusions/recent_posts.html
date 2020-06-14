@@ -5,17 +5,30 @@
     <title></title>
 </head>
 <body>
-<div class="widget widget-recent-posts">
-  <h3 class="widget-title">最新文章</h3>
-  <ul>
-    {% for post in recent_post_list %}
-      <li>
-        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-      </li>
-    {% empty %}
-      暂无文章！
-    {% endfor %}
-  </ul>
+<div class="widgeta">
+  <div class="widget widget-recent-posts">
+    <div style="width: 100%;float: left;box-shadow: 0 0 15px #000000;">
+      <div style="width: 100%;float: left;box-shadow: 0 0 10px #ffffff inset;">
+        <h3 class="widget-title">最新文章</h3>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+        <div style="height: 3px;width: 25%;float: left;background-color: #d7e9f5;"></div>
+        <div style="height: 3px;width: 65%;float: left;background-color: #333;"></div>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+      </div>
+  </div>
+  <div class="widgetb widgetb1">
+    <ul>
+      {% for post,one,num in array %}
+      
+        <li>
+          <div style="background-color: {{ one }}">{{ num }}</div><a href="{{ post.get_absolute_url }}">{{ post.title}}</a>
+        </li>
+      {% empty %}
+        暂无文章！
+      {% endfor %}
+    </ul>
+  </div>
+</div>
 </div>
 </body>
 </html>

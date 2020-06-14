@@ -118,6 +118,8 @@ USE_I18N = True
 
 USE_L10N = True
 
+DATETIME_FORMAT = 'Y-m-d'
+
 USE_TZ = True
 
 

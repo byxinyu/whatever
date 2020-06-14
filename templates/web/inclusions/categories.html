@@ -5,17 +5,29 @@
     <title></title>
 </head>
 <body>
-<div class="widget widget-category">
-  <h3 class="widget-title">分类</h3>
+<div class="widgeta">
+  <div class="widget widget-category">
+    <div style="width: 100%;float: left;box-shadow: 0 0 15px #000000;">
+      <div style="width: 100%;float: left;box-shadow: 0 0 10px #ffffff inset;">
+        <h3 class="widget-title">分类</h3>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+        <div style="height: 3px;width: 25%;float: left;background-color: #d7e9f5;"></div>
+        <div style="height: 3px;width: 65%;float: left;background-color: #333;"></div>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+      </div>
+    </div>
+  <div class="widgetb widgetb3">
   <ul>
     {% for category in category_list %}
       <li>
-        <a href="{% url 'web:category' category.pk %}">{{ category.name }} <span class="post-count">({{ category.num_posts }})</span></a>
-      </li>
+         <div>{{ category.num_posts }}</div><h5 class="glyphicon glyphicon-pushpin"></h5><a href="{% url 'web:category' category.pk %}">{{ category.name }}</a>
+       </li>
     {% empty %}
       暂无分类！
     {% endfor %}
   </ul>
+</div>
+</div>
 </div>
 </body>
 </html>

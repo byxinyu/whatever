@@ -1,3 +1,5 @@
+{% block toc %}
+{% if post.toc %}
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -5,17 +7,32 @@
     <title></title>
 </head>
 <body>
-<div class="widget widget-archives">
-  <h3 class="widget-title">归档</h3>
+<div class="widgeta">
+  <div class="widget widget-archives">
+    <div style="width: 100%;float: left;box-shadow: 0 0 15px #000000;">
+      <div style="width: 100%;float: left;box-shadow: 0 0 10px #ffffff inset;">
+        <h3 class="widget-title">归档</h3>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+        <div style="height: 3px;width: 25%;float: left;background-color: #d7e9f5;"></div>
+        <div style="height: 3px;width: 65%;float: left;background-color: #333;"></div>
+        <div style="height: 3px;width: 5%;float: left;"></div>
+      </div>
+    </div>
+<div class="widgetb widgetb2">
   <ul>
     {% for date in date_list %}
       <li>
-        <a href="{% url 'web:archive' date.year date.month %}">{{ date.year }} 年 {{ date.month }} 月</a>
+        {{ post.toc|safe }}
       </li>
     {% empty %}
       暂无归档！
     {% endfor %}
   </ul>
+
 </div>
+</div>
+</div>
+{% endif %}
+{% endblock toc %}
 </body>
 </html>

@@ -5,17 +5,31 @@
     <title></title>
 </head>
 <body>
-<div class="widget widget-tag-cloud">
-  <h3 class="widget-title">标签云</h3>
+<div class="widgeta">
+  <div class="widget widget-category1">
+    <div style="width: 100%;float: left;box-shadow: 0 0 15px #000000;">
+      <div style="width: 100%;float: left;box-shadow: 0 0 10px #ffffff inset;">
+         <h3 class="widget-title">标签云</h3>
+         <div style="height: 3px;width: 5%;float: left;"></div>
+         <div style="height: 3px;width: 25%;float: left;background-color: #d7e9f5;"></div>
+         <div style="height: 3px;width: 65%;float: left;background-color: #333;"></div>
+         <div style="height: 3px;width: 5%;float: left;"></div>
+        </div>
+       </div>
+      <div class="widgetb widgetb2">
   <ul>
     {% for tag in tag_list %}
-      <li>
-        <a href="{% url 'web:tag' tag.pk %}">{{ tag.name }} <span class="post-count">({{ tag.num_posts }})</a>
+      <li style="background-color:{{ tag.tagColor }};">
+        <h5 class="glyphicon glyphicon-send"></h5><div>
+          <a href="{% url 'web:tag' tag.pk %}" style="color:{{ tag.tagColor }} ;">{{ tag.name }}</a>
+        </div>
       </li>
     {% empty %}
       暂无标签！
     {% endfor %}
   </ul>
+</div>
+</div>
 </div>
 </body>
 </html>
